@@ -13,3 +13,9 @@
     npx husky install
 3. git 管理代码
     git init
+4. git log规范
+    
+
+    type: message
+    type(module): message
+    perf(reactivity): addxx
