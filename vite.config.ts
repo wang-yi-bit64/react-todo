@@ -7,12 +7,29 @@ import path from "path"
 export default defineConfig({
   plugins: [
     react(),
-    vitePluginImp()
+    vitePluginImp({
+      libList: [
+        {
+          libName: 'antd',
+          style(name) {
+            // use less
+            return `antd/es/${name}/style/index.js`
+          }
+        },
+      ]
+    })
   ],
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', "ts"],
     alias: {
       '@': path.resolve(__dirname, 'src'),
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true
+      }
     }
   }
 })
